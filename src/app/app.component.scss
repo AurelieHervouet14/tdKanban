@@ -1,0 +1,136 @@
+.kanban__title{
+	text-align: center;
+}
+
+ol {
+	transition: border-color 2s ease, all 0.1s ease;
+}
+
+ol.kanban.Backlog {
+	border-top: 5px solid #29B6F6;
+}
+
+ol.kanban.To-do {
+	border-top: 5px solid #FF3D00;
+}
+
+ol.list.To-do {
+	border-left: 2px solid #FFB300;
+}
+
+ol.kanban.In-Progress {
+	border-top: 5px solid #FFB300;
+}
+
+ol.kanban.Done {
+	border-top: 5px solid #8BC34A;
+}
+
+ol.kanban.newColumn {
+	border-top: 5px solid #6a10be;
+}
+
+.smart-kanban-column-header .smart-unselectable span{
+	color: #00838F !important;
+}
+
+ol.kanban {
+	border-top: 5px solid #78909C;
+	width: 20%;
+	height: auto;
+	margin: 1%;
+	max-width: 250px;
+	min-width: 120px;
+	display: inline-block;
+	vertical-align: top;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+	flex-direction: column;
+	min-height: 200px;
+	z-index: 1;
+	position: relative;
+	background: #fff;
+	padding: 1em;
+	border-radius: 2px;
+}
+
+.dd {
+	max-width: 100%;
+	top: 88px;
+	margin: 0 auto;
+	display: block;
+	vertical-align: top;
+}
+
+.dd-handle .material-icons {
+	color: #B0BEC5;
+	font-size: 14px;
+	font-weight: 800;
+	line-height: 2rem;
+	position: relative;
+	right: 0;
+	color: #607D8B;
+	padding: 5px 16px;
+}
+
+.dd-item {
+	display: block;
+	margin: 15px 0;
+	padding: 5px 10px;
+	color: #333;
+	text-decoration: none;
+	font-weight: bold;
+	border: 1px solid #ccc;
+	background: #fafafa;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+  
+.dd-item:hover {
+	background: #fff;
+}
+
+.dd-item:hover, button:hover {
+  color: #00838F;
+  will-change: box-shadow;
+  transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, .14), 0 3px 1px -6px rgba(0, 0, 0, .2), 2px 5px 3px 0 rgba(0, 0, 0, .12);
+}
+
+.title {
+	text-align: center;
+	align-self: flex-end;
+	color: inherit;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	font-size: 24px;
+	line-height: normal;
+	overflow: hidden;
+	-webkit-transform-origin: 149px 48px;
+	transform-origin: 149px 48px;
+	margin: 0;
+	margin-bottom: 8px;
+}
+
+.text {
+	color: grey;
+	border-top: 1px solid;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 18px;
+	overflow: hidden;
+	padding: 12px;
+	width: 90%;
+}
+
+.actions {
+	border-top: 1px solid rgba(0, 0, 0, .1);
+	font-size: 8px;
+	line-height: normal;
+	width: 100%;
+	color: #B0BEC5;
+	padding: 8px;
+	box-sizing: border-box;
+  }

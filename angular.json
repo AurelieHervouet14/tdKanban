@@ -28,7 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/smart-webcomponents-angular/source/styles/smart.default.css",
+              "./node_modules/smart-webcomponents-angular/source/styles/smart.purple.css"
             ],
             "scripts": []
           },
@@ -96,12 +98,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/smart-webcomponents-angular/source/styles/smart.default.css",
+              "./node_modules/smart-webcomponents-angular/source/styles/smart.purple.css"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
