@@ -1,71 +1,55 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <div class="kanban__title">
     <h1>Kanban</h1>
 
-    <div class="container">
-        <ol class="kanban Backlog">
-            <div class="kanban__title">
-                <h2 contenteditable="true">Backlog</h2>
-            </div>
-            <li class="dd-item" data-id="5">
-                <h3 class="title dd-handle" contenteditable="true">Créer les différentes colonnes</h3>
-                <div class="text" contenteditable="true">
-                    Colonne: Backlog, To-Do, In Progress, Done
-                </div>
-            </li>
-            <li class="dd-item" data-id="5">
-                <h3 class="title dd-handle" contenteditable="true">Mise en forme</h3>
-                <div class="text" contenteditable="true">
-                    Faire le css, pour rendre plus agréable à regarder la page.
-                </div>
-            </li>
-            <li class="dd-item" data-id="5">
-                <h3 class="title dd-handle" contenteditable="true">Drag and Drop</h3>
-                <div class="text" contenteditable="true">
-                    Faire en sorte que nous puissions déplacer les cartes de colonnes en colonnes.
-                </div>
-            </li>
-        </ol>
+    <div class="m-b-20">
+       <span>
+        <input type="text" #title />
+            <button class="addButton" (click)="addColumn(title.value); title.value = ' '">
+                <i class="fas fa-plus-circle"></i>
+                Colonne
+            </button>
+        </span> 
+    </div>
 
-        <ol class="kanban To-do">
-            <div class="kanban__title">
-                <h2 contenteditable="true">To-Do</h2>
+    <div class="">
+        <ol class="kanban" *ngFor="let column of columns" [style.border-color]="randomColor()">
+            <div class="kanban__title" >
+                <h2 contenteditable="true">
+                    {{column.title}} 
+                    <i class="fas fa-trash size" (click)="deleteColumn(column.id)"></i>
+                </h2>
             </div>
-            <li class="dd-item" data-id="5">
-                <h3 class="title dd-handle" contenteditable="true">Drag and Drop</h3>
-                <div class="text" contenteditable="true">
-                    Faire en sorte que nous puissions déplacer les cartes de colonnes en colonnes.
-                </div>
-            </li>
-        </ol>
-
-        <ol class="kanban In-Progress">
-            <div class="kanban__title">
-                <h2 contenteditable="true">In Progress</h2>
+            <div class="example-container">
+                <div cdkDropList
+                #columnsList="cdkDropList"
+                [cdkDropListData]="columns"
+                [cdkDropListConnectedTo]="[columnsList]"
+                class="example-list"
+                (cdkDropListDropped)="drop($event)">
+                    <div *ngFor="let task of column.tasks" cdkDrag>
+                        <li class="dd-item" data-id="5">
+                            <h3 class="title dd-handle" contenteditable="true">{{task.titleTask}}</h3>
+                            <!-- <div class="text" contenteditable="true"> -->
+                                <!-- {{task.name}} -->
+                            <!-- </div> -->
+                            <i class="fas fa-trash" (click)="deleteTask(column.id, task.id)"></i>
+                        </li>
+                    </div>
+                </div>   
             </div>
-            <li class="dd-item" data-id="5">
-                <h3 class="title dd-handle" contenteditable="true">Mise en forme</h3>
-                <div class="text" contenteditable="true">
-                    Faire le css, pour rendre plus agréable à regarder la page.
-                </div>
-            </li>
-        </ol>
-
-        <ol class="kanban Done">
-            <div class="kanban__title">
-                <h2 contenteditable="true">Done</h2>
+            <div class="actions">
+                <span>
+                    <input type="text" #titleTask />
+                        <button class="addButtonTask" (click)="addTask(column.id, $event)">
+                            <i class="fas fa-plus-circle"></i>
+                            Tâche
+                        </button>
+                </span> 
             </div>
-            <li class="dd-item" data-id="5">
-                <h3 class="title dd-handle" contenteditable="true">Créer les différentes colonnes</h3>
-                <div class="text" contenteditable="true">
-                    Colonne: Backlog, To-Do, In Progress, Done
-                </div>
-            </li>
-        </ol>
-
-        <ol class="kanban newColumn">
-            <smart-kanban #kanban id="kanban" [addNewColumn]="addNewColumn" [columns]="columns"></smart-kanban>
-        </ol>
-        
+        </ol>        
     </div>
 </div>
 

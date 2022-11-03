@@ -1,3 +1,4 @@
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { KanbanModule } from 'smart-webcomponents-angular/kanban';
@@ -12,7 +13,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    KanbanModule
+    KanbanModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
